@@ -24,7 +24,8 @@
   --hero-btn-shadow-cl: rgba(0, 0, 0, 0.15);
   --hero-overlay-cl: rgba(47, 48, 58, 0.4);
   --modal-overlay-cl: rgba(0, 0, 0, 0.2);
-  --animation-effect: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-effect-duration: 250ms;
+  --animation-effect-cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*
@@ -82,6 +83,15 @@ img {
 .link {
   color: var(--header-cl);
   text-decoration: none;
+}
+
+.button {
+  font-size: 16px;
+  border: 0;
+  color: var(--white-cl);
+  background-color: var(--blue-bg-cl);
+  box-shadow: 0px 4px 4px var(--hero-btn-shadow-cl);
+  border-radius: 4px;
 }
 
 .visually-hidden {
@@ -150,7 +160,7 @@ img {
   letter-spacing: 0.02em;
 }
 
-/* .site-nav .item:not(:last-child) {
+/* .site-nav .cubicanimation-effect-cubicitem:not(:last-child) {
   margin-right: 50px;
 }  правильне рішення, але є досить складним*/
 
@@ -168,7 +178,7 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
 
-  transition: color 250ms var(--animation-effect);
+  transition: color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .site-nav .link:hover,
@@ -206,7 +216,7 @@ img {
   padding-top: 32px;
   padding-bottom: 32px;
 
-  transition: color 250ms var(--animation-effect);
+  transition: color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .contacts .link:hover,
@@ -266,18 +276,10 @@ img {
   padding-bottom: 10px;
   padding-left: 32px;
   padding-right: 32px;
-  border: 0;
-  background-color: var(--blue-bg-cl);
-  color: var(--white-cl);
   font-weight: 700;
-  font-size: 16px;
   line-height: 1.88;
   letter-spacing: 0.06em;
-  cursor: pointer;
-  box-shadow: 0px 4px 4px var(--hero-btn-shadow-cl);
-  border-radius: 4px;
-
-  transition: background-color 250ms var(--animation-effect);
+  transition: background-color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .hero .button:hover,
@@ -434,7 +436,7 @@ img {
   border-radius: 50%;
   fill: var(--light-ico-cl);
 
-  transition: background-color 250ms var(--animation-effect);
+  transition: background-color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .team-social-link:hover,
@@ -443,7 +445,7 @@ img {
 }
 
 .team-social-icon {
-  transition: fill 250ms var(--animation-effect);
+  transition: fill var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .team-social-link:hover .team-social-icon,
@@ -477,7 +479,8 @@ img {
   border-radius: 4px;
   fill: var(--light-ico-cl);
 
-  transition: fill 250ms var(--animation-effect), border-color 250ms var(--animation-effect);
+  transition: fill var(--animation-effect-duration) var(--animation-effect-cubic),
+    border-color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .clients-link:hover,
@@ -504,18 +507,16 @@ img {
 
 .filter-list .button {
   padding: 6px 22px;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
-  color: var(--header-cl);
   background-color: var(--btn-bg-cl);
+  color: var(--header-cl);
   font-weight: 500;
-  font-size: 16px;
   line-height: 1.62;
   letter-spacing: 0.03em;
 
-  transition: background-color 250ms var(--animation-effect),
-    box-shadow 250ms var(--animation-effect), color 250ms var(--animation-effect);
+  transition: background-color var(--animation-effect-duration) var(--animation-effect-cubic),
+    box-shadow var(--animation-effect-duration) var(--animation-effect-cubic),
+    color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .filter-list button:hover,
@@ -595,7 +596,7 @@ img {
 .examples-link {
   display: block;
 
-  transition: box-shadow 250ms var(--animation-effect);
+  transition: box-shadow var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .examples-overlay-thumb {
@@ -618,7 +619,7 @@ img {
   font-size: 18px;
   line-height: 1.56;
 
-  transition: transform 250ms var(--animation-effect);
+  transition: transform var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .examples-link:hover .examples-overlay-text,
@@ -653,13 +654,13 @@ img {
 .footer-link {
   color: var(--white-cl);
 
-  transition: color 250ms var(--animation-effect);
+  transition: color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .footer-link-alfa {
   color: var(--white-alfa-cl);
 
-  transition: color 250ms var(--animation-effect);
+  transition: color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .footer-link:hover,
@@ -697,7 +698,7 @@ img {
   border-radius: 50%;
   background-color: var(--dark-ico-cl);
 
-  transition: background-color 250ms var(--animation-effect);
+  transition: background-color var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .footer-social-icon {
@@ -709,11 +710,56 @@ img {
   background-color: var(--blue-bg-cl);
 }
 
+.footer-join-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-mail {
+  padding: 15px;
+  width: 358px;
+  height: 50px;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.6);
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  transition: border-color var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.footer-mail:focus {
+  border-color: var(--blue-cl);
+}
+
+.footer .button {
+  padding: 10px 29px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  transition: background-color var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.footer .button:hover,
+.footer .button:focus {
+  background-color: var(--hero-btn-accent-cl);
+}
+
+.footer-button-thumb {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
 /*
 |=================================
 |     Modal window 
 |=================================
 */
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -723,7 +769,8 @@ img {
   background-color: var(--modal-overlay-cl);
 
   opacity: 1;
-  transition: opacity 250ms var(--animation-effect);
+  transition: opacity var(--animation-effect-duration) var(--animation-effect-cubic),
+    visibility var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 
 .modal {
@@ -732,6 +779,7 @@ img {
   top: 50%;
   min-width: 528px;
   min-height: 581px;
+  padding: 40px;
 
   background-color: var(--white-bg-cl);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
@@ -739,7 +787,7 @@ img {
   border-radius: 4px;
 
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms var(--animation-effect);
+  transition: transform var(--animation-effect-duration) var(--animation-effect-cubic);
 }
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.1);
@@ -748,6 +796,7 @@ img {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .modal-close-btn {
@@ -758,4 +807,142 @@ img {
 
   border: none;
   background-color: var(--white-bg-cl);
+
+  fill: var(--black-cl);
+  transition: fill var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  fill: var(--blue-cl);
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-field-comment {
+  margin-bottom: 20px;
+}
+
+.form-field:last-child {
+  padding-bottom: 30px;
+}
+
+.form-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.form-label-title {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  line-height: 1.67;
+  letter-spacing: 0.01em;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-input {
+  padding-left: 42px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  width: 100%;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  transition: border-color var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.form-input:focus {
+  border-color: var(--blue-cl);
+  outline: none;
+}
+
+.form-comment {
+  width: 100%;
+  height: 120px;
+  padding: 12px 16px;
+  resize: none;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  outline: none;
+  transition: border-color var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.form-comment:focus {
+  border-color: var(--blue-cl);
+}
+
+.form-comment::placeholder {
+  color: #75757580;
+}
+
+.modal-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+}
+.modal-icon-thumb {
+  position: relative;
+  fill: var(--header-cl);
+  transition: fill var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.modal-icon-thumb:focus-within {
+  fill: var(--blue-cl);
+}
+
+.modal-checkbox {
+  appearance: none;
+  position: absolute;
+}
+
+.modal-checkbox-icon {
+  width: 16px;
+  height: 15px;
+  border: 2px solid var(--header-cl);
+  border-radius: 2px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.modal-checkbox:checked + .modal-checkbox-icon {
+  background-color: var(--blue-bg-cl);
+  background-image: url(../images/icon-check.svg);
+  background-size: contain;
+  background-origin: border-box;
+  border: 2px solid var(--blue-bg-cl);
+}
+
+.link-policy {
+  color: var(--blue-cl);
+}
+
+.form .button {
+  display: flex;
+  padding: 10px 56px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 700;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+
+  transition: background-color var(--animation-effect-duration) var(--animation-effect-cubic);
+}
+
+.form .button:hover,
+.form .button:focus {
+  background-color: var(--hero-btn-accent-cl);
 }
